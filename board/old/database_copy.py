@@ -18,7 +18,6 @@ def init_db_command():
 
     click.echo("You successfully initialized the database!")
 
-
 def get_db():
     if "db" not in g:
         g.db = sqlite3.connect(
