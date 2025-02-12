@@ -1,6 +1,9 @@
 import psycopg2
 import psycopg2.extras
+import psycopg2
+import psycopg2.extras
 import click
+import os
 from flask import current_app, g
 from urllib.parse import urlparse
 

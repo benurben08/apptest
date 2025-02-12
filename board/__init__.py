@@ -19,3 +19,4 @@ def create_app():
     print(f"Using Database: {app.config.get('DATABASE')}")  # Debugging line
 
     return app
+
