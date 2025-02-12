@@ -16,12 +16,26 @@ def init_db_command():
     db.commit()
     click.echo("You successfully initialized the database!")
 
+'''
 def get_db():
     if "db" not in g:
         db_url = os.getenv("DATABASE_URL")
         g.db = psycopg2.connect(db_url, cursor_factory=psycopg2.extras.DictCursor)
 
     return g.db
+'''
+
+def get_db():
+    if "db" not in g:
+        db_url = os.getenv("DATABASE_URL")
+        if not db_url:
+            raise RuntimeError("DATABASE_URL is not set in environment variables.")
+
+        g.db = psycopg2.connect(db_url, cursor_factory=psycopg2.extras.DictCursor, sslmode="require")
+
+    return g.db
+
+
 
 def close_db(e=None):
     db = g.pop("db", None)
