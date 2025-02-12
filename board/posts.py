@@ -6,10 +6,9 @@ from flask import (
     url_for,
 )
 
-from board.old.database_copy import get_db
+from board.database import get_db
 
 bp = Blueprint("posts", __name__)
-
 
 @bp.route("/create", methods=("GET", "POST"))
 def create():
