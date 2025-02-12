@@ -19,3 +19,4 @@ def create_app():
     print(f"Current Environment: {os.getenv('ENVIRONMENT')}")
     print(f"Using Database: {app.config.get('DATABASE')}")
     return app
+
